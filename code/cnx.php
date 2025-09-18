@@ -6,10 +6,9 @@ class dbconexion{
 
     private $conn;
     private $servername = "localhost";
-    private $myDB = "lsvgsg2025";
+    private $myDB = "lazzy_store";
     private $username = "root";
-    private $password = "";//root
-    
+    private $password = "";//root    
     
     public function __construct()
     {        
@@ -50,7 +49,6 @@ class dbconexion{
 
         try {        
             $er=$this->conn->query($query_statement)->fetchAll();//
-        // php_console_log($err,'llego aqui?');!=null?'vacio' :$err
             
         } catch(PDOException $e) {
             $ok=false;//die($conn->getMessage());
@@ -64,57 +62,35 @@ class dbconexion{
      */
     public function find_By($query_statement)
     {       
-        // $servername = "localhost";
-        // $myDB = "lsvgsg2025";
-        // $username = "root";
-        // $password = "";
         $er=null;
         $ok=true;
-        //new PDO("mysql:host=localhost;dbname=lsvgsg2025","root","root");  
+
         try {
-        $conn = new PDO("mysql:host=$this->servername;dbname=$this->myDB", $this->username, $this->password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        // echo "Connected successfully";
-        // echo $qry;
-        $er=$conn->query($query_statement)->fetch();//
-        // php_console_log($err,'llego aqui?');!=null?'vacio' :$err
+        
+            $er=$this->conn->query($query_statement)->fetch();//
             
         } catch(PDOException $e) {
             $ok=false;//die($conn->getMessage());
             $er=$e->getMessage();
         }
-        $conn=null;
-        return  ['status'=>$ok,'info'=>$er,'qr'=>$query_statement];
+        $this->AnswerData ($ok,$er,$query_statement);
     }
 
     public function getAll_OrderBy($table_name,$table_sort_key)
     {       
-        // $servername = "localhost";
-        // $myDB = "lsvgsg2025";
-        // $username = "root";
-        // $password = "";
         $er=null;
         $ok=true;
-        //new PDO("mysql:host=localhost;dbname=lsvgsg2025","root","root");  
+
         try {
-        $conn = new PDO("mysql:host=$this->servername;dbname=$this->myDB", $this->username, $this->password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        // echo "Connected successfully";
-        $qry=" SELECT * from $table_name order by $table_sort_key ASC";
+            $query_statement=" SELECT * from $table_name order by $table_sort_key ASC";
         // echo $qry;
-        $er=$conn->query($qry)->fetchAll();//
-        // php_console_log($err,'llego aqui?');!=null?'vacio' :$err
+            $er=$this->conn->query($query_statement)->fetchAll();//
             
         } catch(PDOException $e) {
             $ok=false;//die($conn->getMessage());
             $er=$e->getMessage();
         }
-        $conn=null;
-        return  ['status'=>$ok,'info'=>$er,'qr'=>$qry];
+        $this->AnswerData ($ok,$er,$query_statement);
     }
 }
 /**
@@ -122,45 +98,14 @@ class dbconexion{
  * 
  * @param  Array, Object, String $data
  * @return String
- */
-    function php_console_log_data( $data, $comment = NULL ) {    
-        $output='';    
-        if(is_string($comment))
-            $output .= "<script>console.log( '$comment' );";
-        elseif($comment!=NULL)
-            $comment==NULL;//Si se pasa algo que no sea un string se pone a NULL para que no de problemas
-        if ( is_array( $data ) ) {
-            if($comment==NULL)
-                $output .= "<script>console.warn( 'Array PHP:' );";
-            $output .= "console.log( '[" . implode( ',', $data) . "]' );</script>";
-        } else if ( is_object( $data ) ) {
-            $data    = var_export( $data, TRUE );
-            $data    = explode( "\n", $data );
-            if($comment==NULL)
-                $output .= "<script>console.warn( 'Objeto PHP:' );";
-            foreach( $data as $line ) {
-                if ( trim( $line ) ) {
-                    $line    = addslashes( $line );
-                    $output .= "console.log( '{$line}' );";
-                }
-            }
-            $output.="</script>";
-        } else {
-            if($comment==NULL)
-                $output .= "<script>console.warn( 'Valor de variable PHP:' );";
-            $output .= "console.log( '$data' );</script>";
-        }
-            
-        echo $output;
-    }
-
+ */    
     function php_console_log( $data, $comment = NULL ) {    
         $output=''; 
         $data_out = json_encode($data);
         
         $comment= (is_null($comment))? 'sin comentarios': $comment;
         
-        $output .= "<script>console.warn( '$comment' );";
+        $output .= "<script>console.log( '$comment' );";
         
         $output .= "console.log( '$data_out' );";
         
@@ -168,8 +113,4 @@ class dbconexion{
                     
         echo $output;
     }
-
-    $gg=new dbconexion();
-    $qry = "SELECT * from catalogo_area_table ";  //where id_area=$areaId         
-
-    $gg->findAll_By($qry);
+    
