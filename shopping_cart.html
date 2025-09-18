@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Shopping Cart - Lazzy Store</title>
+    <meta name="description" content="esto es para...">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/mycss.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="shopping_cart.html">Lazzy Store</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="shopping_cart.html">vender</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sales_today.html">consolidar dia</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" id="controlar_productos" href="#">controlar Productos</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="ctlg_add_prod.html">Adicionar Producto</a><a class="dropdown-item" href="ctlg_addext_prod.html">Adicionar Existencias</a></div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" id="inventario_productos" href="#">Inventariar Productos</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="ctlg_invprodcsts.html">Producto - Costo</a><a class="dropdown-item" href="ctlg_invprodexst.html">Producto - Existencias</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="clean-block clean-cart dark">
+            <div class="container">
+                <div style="padding: 15px 0px 0px;height: 30px;" class="block-heading">
+                    <h2 class="text-info">Listado de Productos</h2>
+                </div>
+                <div class="content row">
+                    <div class="row g-0">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="items">
+                                <div class="product">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-5 product-info"><a class="product-name">Lorem Ipsum dolor</a></div>
+                                        <div class="col-6 col-md-2 quantity"><input type="number" id="number" class="form-control quantity-input" value="1"></div>
+                                        <div class="col-6 col-md-2 price"><span>$120</span></div>
+                                    </div>
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-5 product-info"><a class="product-name">Lorem Ipsum dolor</a></div>
+                                        <div class="col-6 col-md-2 quantity"><input type="number" id="number-1" class="form-control quantity-input" value="1"></div>
+                                        <div class="col-6 col-md-2 price"><span>$120</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="bg-body-tertiary summary">
+                                <h3>resumen</h3>
+                                <h4 class="border-primary-subtle" style="border-color: var(--bs-primary-border-subtle);"><span class="text">Subtotal</span><span class="price">$360</span></h4>
+                                <h4><span class="text">Total</span><span class="price">$360</span></h4><button class="btn btn-primary btn-lg d-block w-100" type="button">Pagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
