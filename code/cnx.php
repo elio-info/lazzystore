@@ -20,26 +20,29 @@ class dbconexion{
         // $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);        
     }
     
-    function AnswerData($actionStatus,$OperationResult,$querySended) {
+    function AnswerData($actionStatus,$OperationResult,$querySended,$print_answer) {
 
         $answer=['status'=>$actionStatus,'info'=>$OperationResult,'qr'=>$querySended];
-        echo json_encode( $answer ) ;
-        php_console_log( $answer);    
+        if($print_answer)
+            echo json_encode( $answer ) ;          
     }
 
-    public function addP($query_statement)
+    public function addP($query_statement,$print_answer=true)
     {      
         $er=null;
         $ok=true;
           
         try {       
        // eConnected successfully";
-            $this->conn->exec($query_statement);        
+           $er= $this->conn->exec($query_statement);   
+            
          } catch(PDOException $e) {
             $er='Error en datos ya existentes.['.$e->getMessage(); 
             $ok=false; 
         }
-        $this->AnswerData ($ok,$er,$query_statement);     
+        $this->AnswerData ($ok,$er,$query_statement,$print_answer);   
+        return $this->conn->lastInsertId();
+        // php_console_log( $_POST,$comment);      
     }
     
     public function findAll_By($query_statement)
@@ -65,8 +68,7 @@ class dbconexion{
         $er=null;
         $ok=true;
 
-        try {
-        
+        try {        
             $er=$this->conn->query($query_statement)->fetch();//
             
         } catch(PDOException $e) {
@@ -101,15 +103,14 @@ class dbconexion{
  */    
     function php_console_log( $data, $comment = NULL ) {    
         $output=''; 
-        $data_out = json_encode($data);
-        
+                
         $comment= (is_null($comment))? 'sin comentarios': $comment;
         
-        $output .= "<script>console.log( '$comment' );";
+        $output .= "<script>console.log( '$comment' );</script>";
         
-        $output .= "console.log( '$data_out' );";
+        $output .= "<script>console.log( $data );";
         
-        $output .="</script>";
+        // $output .="</script>";
                     
         echo $output;
     }

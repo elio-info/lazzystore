@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `venta_productodetalles` CASCADE
 CREATE TABLE `Producto`
 (
 	`id_prod` INT NOT NULL AUTO_INCREMENT,
-	`nombre` varchar(250) NOT NULL,
+	`nombre_prod` varchar(250) NOT NULL,
 	CONSTRAINT `PK_Producto` PRIMARY KEY (`id_prod` ASC)
 )
 
