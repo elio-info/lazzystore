@@ -1,33 +1,3 @@
-const titulosSite={
-    'recep':[
-        { 'titulo':'Listado de atrasados'  },
-        { 'titulo':'Agregar Miembro'  },
-        { 'titulo':'Cobrar a miembros'  },
-        { 'titulo':'Pagar Servicio del día'  }        ,
-        { 'titulo':'Cuadre del día'  }],
-    'gerent':[
-        { 'titulo':'Informaci&oacute;n de los Entrenadores'  },
-        { 'titulo':'Pagado en Servicio Diario'  },
-        { 'titulo':'Pago Miembros del d&iacute;a'  },
-        { 'titulo':'Listado de Miembros'  },
-        { 'titulo':'Cuadre diario'  },
-        { 'titulo':'Gestionar Horarios GYM'  },
-        { 'titulo':'Gestionar Tipos de Pago'  },
-        { 'titulo':'Gestionar las &Aacute;reas'  },        
-        { 'titulo':'Gestionar Tipos de  Membres&iacute;as'  },
-        { 'titulo':'Gestionar Servicios'  },
-        { 'titulo':'Estados Cliente Membres&iacute;a'  },
-        { 'titulo':'Gestionar Entrenadores'  },
-        { 'titulo':'Relacionar Paquete<->Entrenadores<->Horarios'  },
-        ]
-}
-
-const cargoUsuario=['Loko','Gerente','Recepci&oacute;n' ,
-    '...'];
-const estadoMiembro=['Bien','Regular','Mal',
-    'Suspendido'];
-
-let dataFromSearch=[];// data to store from search result 
 
 /**
  * show form to insert or update [ general ]

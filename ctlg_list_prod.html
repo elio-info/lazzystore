@@ -16,42 +16,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar">
-        <div class="container">
-            <a class="navbar-brand logo" href="shopping_cart.html">Lazzy Store</a><button data-bs-toggle="collapse"
-                class="navbar-toggler" data-bs-target="#navcol-1">
-                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="shopping_cart.html">vender</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sales_today.html">consolidar dia</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"
-                            id="controlar_productos" href="#">controlar Productos</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="ctlg_add_prod.html">Adicionar Producto</a><a
-                                class="dropdown-item" href="ctlg_addext_prod.html">Adicionar Existencias</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"
-                            id="inventario_productos" href="#">Inventariar Productos</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="ctlg_invprodcsts.html">Producto - Costo</a><a
-                                class="dropdown-item" href="ctlg_invprodexst.html">Producto - Existencias</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">salir</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav id="nav_super" class="navbar navbar-expand-lg fixed-top bg-body clean-navbar">
+        
     </nav>
     <main class="page">
         <section class="clean-block clean-form dark" style="height: 640px">
@@ -78,13 +44,14 @@
     <script src="assets/js/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     
-
     <script src="code/fncns_menu.js"></script>
+    <script src="code/fncns_menu_nav_lzz.js"></script>
     <script src="code/ctlg_prod.js"></script>
 
     <script>
         fillTable_Prod('tableCardHead');
-        // setMenu('gerent',6,<?=$_SESSION['persona']['cargo']?>,'<?=$_SESSION['persona']['nombre']?>')
+        setMenu_Lzz('nav_super',1,6);
+        //,<?=$_SESSION['persona']['cargo']?>,'<?=$_SESSION['persona']['nombre']?>'
     </script>
 </body>
 
