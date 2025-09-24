@@ -59,33 +59,46 @@
                     <h2 class="text-info">Producto</h2>
                     <p id="descrp_action">Valores del mismo</p>
                 </div>
+                <!-- mensaje -->
+                    <div id="mensajesDiv" style="display: none;"></div>
+                <!-- fin mensajes -->
                 <div>
                     <form id="productFrm">
                         <input type="hidden" name="tipo_operacion" id="tipo_operacion" value="guardar">
-                        <div id="productFrm_nombre_div" class="mb-3 col-9">
-                            <label class="form-label" for="name">Nombre</label><input class="form-control" type="text"
+                        <div id="productFrm_nombre_div" class="mb-3 col-auto">
+                            <label class="form-label" for="productFrm_nombre">Nombre</label><input class="form-control" type="text"
                                 id="productFrm_nombre" name="productFrm_nombre" data-bs-theme="light" autofocus=""
                                 required="" minlength="5" placeholder="Nombre completo" />
                         </div>
-                        <div class="mb-3 col-9">
-                            <label class="form-label" for="subject">Cantidad a entrar</label><input class="form-control"
+                        <div class="row">
+                            <div class="mb-3 col-md-6 col-sm-10">
+                                <label class="form-label" for="subject">Cantidad a entrar</label><input class="form-control"
                                 type="number" id="productFrm_cant" name="productFrm_cant" data-bs-theme="light"
                                 required="" minlength="1" min="1" placeholder="Minimo 1" />
-                        </div>
-                        <div class="mb-3 col-9">
-                            <label class="form-label" for="email">Costo del mismo</label><input class="form-control"
-                                type="number" id="productFrm_costo" name="productFrm_costo" data-bs-theme="light"
-                                min="1" placeholder="Minimo 1" required="" step=".1" />
-                        </div>
-                        <div class="mb-3 col-9">
-                            <label class="form-label" for="message">Precio de venta</label><input class="form-control"
-                                type="number" id="message" name="productFrm_precio" data-bs-theme="light" min="1"
-                                placeholder="Precio de venta" required="" step=".1" />
-                        </div>
-                        <div class="mb-3 col-9">
-                            <label class="form-label" for="message-1">Fecha de compra</label><input class="form-control"
-                                id="message-1" name="productFrm_dia" data-bs-theme="light" placeholder="Precio de venta"
+                            </div>
+                            <div class="mb-3 col-md-6 col-sm-10">
+                            <label class="form-label" for="productFrm_dia">Fecha de compra</label><input class="form-control"
+                                id="productFrm_dia" name="productFrm_dia" data-bs-theme="light" placeholder="Precio de venta"
                                 required="" type="date" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="email">Costo del mismo</label><input class="form-control"
+                                    type="number" id="productFrm_costo" name="productFrm_costo" data-bs-theme="light"
+                                    min="1" placeholder="Minimo 1" required="" step=".01" />
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="productFrm_precio">Precio de venta <sub>( 30% por defecto calculado )</sub></label><input class="form-control"
+                                    type="number" id="productFrm_precio" name="productFrm_precio" data-bs-theme="light" min="1"
+                                    placeholder="Precio de venta" required="" step=".01" />
+                            </div>
+                        </div>                        
+                        
+                        <div class="mb-3 col-9">
+                            <label class="form-label" for="productFrm_vence">Fecha de Vencimiento <sub >(opcional)</sub></label><input class="form-control"
+                                id="productFrm_vence" name="productFrm_vence" data-bs-theme="light" placeholder="Precio de vencimiento"
+                                type="date" />
                         </div>
                         <div class="row">
                             <div>
@@ -116,6 +129,8 @@
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
 
+    <script src="code/jquery-3.7.1.js"></script>
+    <script src="code/my_dataTables.js"></script>
     <script src="code/fncns_menu.js"></script>
     <script src="code/ctlg_prod.js"></script>
 </body>

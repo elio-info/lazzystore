@@ -8,7 +8,7 @@ class dbconexion{
     private $servername = "localhost";
     private $myDB = "lazzy_store";
     private $username = "root";
-    private $password = "";//root    
+    private $password = "";// root  
     
     public function __construct()
     {        
@@ -20,9 +20,9 @@ class dbconexion{
         // $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);        
     }
     
-    function AnswerData($actionStatus,$OperationResult,$querySended,$print_answer) {
+    function AnswerData($actionStatus,$OperationResult,$querySended,$print_answer=true) {
 
-        $answer=['status'=>$actionStatus,'info'=>$OperationResult,'qr'=>$querySended];
+        $answer=array('status'=>$actionStatus,'info'=>$OperationResult,'qr'=>$querySended);
         if($print_answer)
             echo json_encode( $answer ) ;          
     }
